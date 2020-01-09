@@ -1,6 +1,6 @@
 master:
-  # installPlugins:
-  #   - ansicolor:0.6.2
+  installPlugins:
+    - ansicolor:0.6.2
   #   - kubernetes:1.22.4
   #   - workflow-aggregator:2.6
   #   - credentials-binding:1.20
@@ -10,6 +10,7 @@ master:
   #   - blueocean:1.21.0
   #   - yet-another-Docker:0.1.5
   #   - docker:1.1.9
+  jenkinsUrl: jenkins.three-digital.co.uk
   javaOpts: "-Dhudson.model.DirectoryBrowserSupport.CSP=\"default-src 'self' 'unsafe-inline'; img-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; font-src *\""
   # scriptApproval:
   #   - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
