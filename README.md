@@ -14,7 +14,7 @@ helm installed(v3 used here)
 3. Create a resource group (Can be done via portal, might need to switch local cluster context)  
 	`az group create --name QaAutomationResources --location westeurope`
 4. Create a named managed cluster  
-	`az aks create -g QaAutomationResources -n QaTestAutomation --node-count 3 --enable-addons monitoring --location westeurope  --kubernetes-version 1.15.7 > create-response.json`
+	`az aks create -g QaAutomationResources -n QaTestAutomation --node-count 3 --enable-addons monitoring --location westeurope  --kubernetes-version 1.15.7 > create-response.json`  
 5. Make sure your cluster context is set to the newly created cluster. --overwrite-existing flag necessary if you're redeploying a cluster  
 	`az aks get-credentials -g QaAutomationResources -n QaTestAutomation --admin --overwrite-existing`  
 6. Enable the k8s dashboard for the cluster  
