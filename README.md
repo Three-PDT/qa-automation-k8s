@@ -32,10 +32,10 @@ helm installed(v3 used here)
 Create ingress namespace
 
 1. kubectl create namespace ingress-basic
+2. Install an nginx-ingress controller
 
 ```bash
-Install an nginx-ingress controller
-2. helm install test-automation-ingress stable/nginx-ingress \
+helm install test-automation-ingress stable/nginx-ingress \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
@@ -67,7 +67,7 @@ NOTE!
 regression-qa is the dns used for test automation. jenkins.three-digital.co.uk is c-named to regression-qa.westeurope.cloudapp.azure.com
 
 Example input:   
-1)
+1.
 
 ```
 az network public-ip list --query "[?ipAddress!=null]|
@@ -101,16 +101,16 @@ https://cert-manager.io/docs/installation/kubernetes/
 Verify installation:  
 [Follow the cert-manager guide for this](https://cert-manager.io/docs/installation/kubernetes/#verifying-the-installation)
 
-1. verify pods running
-	kubectl get pods --namespace cert-manager 
+1. verify pods running  
+	`kubectl get pods --namespace cert-manager`  
 	(3 pods running)
-2. Make a test issuer
-	kubectl apply -f cert-manager/test-issuer.yaml
-3. Check the status of the newly created certificate. You may need to wait a few seconds before cert-manager processes the certificate request.
-	kubectl describe certificate -n cert-manager-test
+2. Make a test issuer  
+	`kubectl apply -f cert-manager/test-issuer.yaml`
+3. Check the status of the newly created certificate. You may need to wait a few seconds before cert-manager processes the certificate request.  
+	`kubectl describe certificate -n cert-manager-test`  
 	Reason will say cert-issued
-4. delete test resource
-	kubectl delete -f cert-manager/test-issuer.yaml
+4. delete test resource  
+	`kubectl delete -f cert-manager/test-issuer.yaml`
 
 ##### CLUSTER CERT ISSUER:
 ##### STAGING FIRST:
