@@ -1,12 +1,12 @@
 # QA Kubernetes cluster deployment
 
-### Technologies needed
+### Technologies needed
 kubernetes-cli
 kubernetes installed(v1.15.7 used here) (see upgrading kubernetes for reference)
 azure cli installed
 helm installed(v3 used here)
 
-### CLUSTER SETUP:
+### CLUSTER SETUP:
 1. Login  
 	`az login`
 2. Set active subscription (CIO - Digital)  
@@ -20,14 +20,14 @@ helm installed(v3 used here)
 6. Enable the k8s dashboard for the cluster  
 	`kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard`
 
-### HELM SETUP:
+### HELM SETUP:
 
 1. Initialise  
 	`helm init`
 2. Add the helm charts via "stable" repo  
 	`helm repo add stable https://kubernetes-charts.storage.googleapis.com/`
 
-### INGRESS:
+### INGRESS:
 
 Create ingress namespace
 
@@ -112,7 +112,7 @@ Verify installation:
 4. delete test resource
 	kubectl delete -f cert-manager/test-issuer.yaml
 
-##### CLUSTER CERT ISSUER:
+##### CLUSTER CERT ISSUER:
 ##### STAGING FIRST:
 
 1. `kubectl apply -f cert-manager/cluster-issuer-staging.yaml`
@@ -125,7 +125,7 @@ Delete:
 1. `kubectl delete -f cert-manager/cluster-issuer-staging.yaml`
 2. `kubectl delete -f ingress-routes/staging-routes.yaml`
 
-PRODUCTION:
+#### PRODUCTION:
 
 1. `kubectl apply -f cert-manager/cluster-issuer-prod.yaml`
 2. `kubectl apply -f ingress-routes/production-routes.yaml`
@@ -138,7 +138,7 @@ This is for Jenkins. Jenkins will use an already set up persistent volume and cl
 2. `kubectl apply -f persistent-volume/pv-claim.yaml`
 
 
-DEPLOY JENKINS:
+#### DEPLOY JENKINS:
 
 1. install jenkins with helm
 	`helm install jenkins-master stable/jenkins -f ./jenkins-helm/jenkins-regression.yaml`
