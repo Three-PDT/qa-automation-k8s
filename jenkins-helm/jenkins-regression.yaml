@@ -1,0 +1,26 @@
+master:
+  # installPlugins:
+  #   - ansicolor:0.6.2
+  #   - kubernetes:1.22.4
+  #   - workflow-aggregator:2.6
+  #   - credentials-binding:1.20
+  #   - git:4.0.0
+  #   - pipeline-github-lib:1.0
+  #   - ghprb:1.42.0
+  #   - blueocean:1.21.0
+  #   - yet-another-Docker:0.1.5
+  #   - docker:1.1.9
+  javaOpts: "-Dhudson.model.DirectoryBrowserSupport.CSP=\"default-src 'self' 'unsafe-inline'; img-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; font-src *\""
+  # scriptApproval:
+  #   - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
+  #   - "new groovy.json.JsonSlurperClassic"
+  #   - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods leftShift java.util.Map java.util.Map"
+  #   - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods split java.lang.String"
+  #   - "method java.util.Collection toArray"
+  #   - "staticMethod org.kohsuke.groovy.sandbox.impl.Checker checkedCall java.lang.Object boolean boolean java.lang.String java.lang.Object[]"
+  #   - "staticMethod org.kohsuke.groovy.sandbox.impl.Checker checkedGetProperty java.lang.Object boolean boolean java.lang.Object"
+persistence:
+  existingClaim: jenkins-master-pv-claim
+
+agent:
+  enabled: false
